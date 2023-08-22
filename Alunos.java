@@ -4,12 +4,6 @@ import java.util.List;
 public class Alunos {
 
     List<Aluno> alunos = new ArrayList<>();
-    List<Aluno> exAlunos = new ArrayList<>();
-
-
-    public List<Aluno> getAlunos() {
-        return alunos;
-    }
 
     public void adicionaAluno(String name, String email){
         Aluno alun = new Aluno(name, email, alunos.size() + 1);
@@ -19,31 +13,45 @@ public class Alunos {
     public void removeAluno(int matricula){
         Aluno aluno = alunos.get(matricula);
         alunos.remove(aluno);
-        exAlunos.add(aluno);
-        aluno.setMatriculaRemovida(exAlunos.size() + 1);
-
-        for (int i = 0; i < alunos.size(); i ++){
-            Aluno alun = alunos.get(i);
-            alun.setMatricula(i + 1);
-        }
     }
 
     public void pesquisarAluno(String email){
         for (Aluno alu: alunos) {
             if(alu.getEmail().contains(email)){
-               String an = alu.getEmail();
+                System.out.println("Email: " + alu.getEmail());
             }
         }
     }
-
-    public List<Aluno> recuperaAluno(int matricula){
-        for (Aluno alun : exAlunos){
+    public String pesquisarAlunoMatricula(int matricula, int adicionaqtdCredito){
+        for (Aluno alun: alunos) {
             if(alun.getMatricula() == matricula){
-                alunos.add(alun);
-                exAlunos.remove(alun);
+                alunos.get(matricula);
+                if(adicionaqtdCredito == 2){
+                    alun.adicionaCredito2();
+                } else if (adicionaqtdCredito == 4) {
+                    alun.adicionaCredito4();
+                } else if (adicionaqtdCredito == 6) {
+                    alun.adicionaCredito6();
+                }
             }
         }
-        return alunos;
+        return null;
+    }
+
+    public void alunoComCreditos(){
+        for (Aluno alunin: alunos) {
+            if(alunin.getQtdCredito() > 0){
+                alunin.toString();
+            }
+        }
+    }
+    @Override
+    public String toString(){
+        String todosAlunos = "";
+        for (Aluno aluno: alunos) {
+            todosAlunos += (aluno.toString());
+        }
+        return todosAlunos;
     }
 
 
