@@ -4,8 +4,8 @@ import java.util.List;
 public class Alunos {
 
     List<Aluno> alunos = new ArrayList<>();
-    List<Aluno> exalunos = new ArrayList<>();
-    
+    List<Aluno> exAlunos = new ArrayList<>();
+
 
     public List<Aluno> getAlunos() {
         return alunos;
@@ -16,32 +16,34 @@ public class Alunos {
         alunos.add(alun);
     }
 
-    public List<Aluno> removeAluno(int matricula){
+    public void removeAluno(int matricula){
         Aluno aluno = alunos.get(matricula);
-        alunos.remove(matricula);
-        return getAlunos();
+        alunos.remove(aluno);
+        exAlunos.add(aluno);
+        aluno.setMatriculaRemovida(exAlunos.size() + 1);
+
+        for (int i = 0; i < alunos.size(); i ++){
+            Aluno alun = alunos.get(i);
+            alun.setMatricula(i + 1);
+        }
     }
 
-    public List<Aluno> pesquisarAluno(String email){
-        Aluno alu = null;
-        for (int i = 0; i < alunos.size(); i++) {
-            alu = alunos.get(i);
-            if (alu.getEmail().contains(email)) {
-                return (List<Aluno>) alu;
+    public void pesquisarAluno(String email){
+        for (Aluno alu: alunos) {
+            if(alu.getEmail().contains(email)){
+               String an = alu.getEmail();
             }
         }
-        return (List<Aluno>) alu;
     }
 
     public List<Aluno> recuperaAluno(int matricula){
-        List<Aluno> alunoRecuperado = new ArrayList<>();
-        for (Aluno alun : alunos){
+        for (Aluno alun : exAlunos){
             if(alun.getMatricula() == matricula){
-                alunoRecuperado.add(alun);
+                alunos.add(alun);
+                exAlunos.remove(alun);
             }
         }
-
-        return alunoRecuperado;
+        return alunos;
     }
 
 
