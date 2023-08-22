@@ -11,7 +11,13 @@ public class Fachada {
     public void pesquisaAlumnis(String email){
         alumnis.pesquisarAluno(email);
     }
-    public void recuperaAlumnis(int matricula){
-        alumnis.recuperaAluno(matricula);
+    public void pesquisarAlumnisMatricula(int matricula, int qtdCredito){
+        alumnis.pesquisarAlunoMatricula(matricula, qtdCredito);
+    }
+    public void alumnnisComCredito(){
+        alumnis.alunoComCreditos();
+    }
+    public void alumnisTodos(){
+        alumnis.toString();
     }
 }
