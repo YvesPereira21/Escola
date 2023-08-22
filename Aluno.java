@@ -16,6 +16,12 @@ public class Aluno {
     public int getMatricula(){
         return matricula;
     }
+    public void setMatricula(int matricula){
+        this.matricula = matricula;
+    }
+    public void setMatriculaRemovida(Integer novaMatricula){
+        matricula = novaMatricula;
+    }
     public Aluno(String nome, String email, int matricula){
         this.nome = nome;
         this.email = email;
