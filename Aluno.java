@@ -3,7 +3,12 @@ public class Aluno {
     private String email;
     private int matricula;
     private int qtdCredito;
-
+    public Aluno(String nome, String email, int matricula){
+        this.nome = nome;
+        this.email = email;
+        this.matricula = matricula;
+        qtdCredito = 0;
+    }
     public String getNome(){
         return nome;
     }
@@ -13,22 +18,8 @@ public class Aluno {
     public void setEmail(String novoEmail){
         email = novoEmail;
     }
-    public int getMatricula(){
-        return matricula;
-    }
-    public void setMatricula(int matricula){
-        this.matricula = matricula;
-    }
-    public void setMatriculaRemovida(Integer novaMatricula){
-        matricula = novaMatricula;
-    }
-    public Aluno(String nome, String email, int matricula){
-        this.nome = nome;
-        this.email = email;
-        this.matricula = matricula;
-        qtdCredito = 0;
-    }
-
+    public int getMatricula(){ return matricula; }
+    public int getQtdCredito(){ return qtdCredito; }
     public void adicionaCredito2(){
         qtdCredito += 2;
     }
@@ -37,5 +28,9 @@ public class Aluno {
     }
     public void adicionaCredito6(){
         qtdCredito += 6;
+    }
+
+    public String toString(){
+        return "Aluno: " + getNome() + "\nMatricula: " + getMatricula() + "\nEmail: " + getEmail() + "\nQuantidade de créditos: " + getQtdCredito();
     }
 }
