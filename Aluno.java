@@ -20,6 +20,7 @@ public class Aluno {
         this.nome = nome;
         this.email = email;
         this.matricula = matricula;
+        qtdCredito = 0;
     }
 
     public void adicionaCredito2(){
