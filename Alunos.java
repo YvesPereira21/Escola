@@ -4,6 +4,8 @@ import java.util.List;
 public class Alunos {
 
     List<Aluno> alunos = new ArrayList<>();
+    List<Aluno> exalunos = new ArrayList<>();
+    
 
     public List<Aluno> getAlunos() {
         return alunos;
