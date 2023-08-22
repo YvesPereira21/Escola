@@ -17,11 +17,16 @@ public class Main {
                 + "Digite 6 para exibir a quantidade de alunos!\n"
                 + "Digite 7 se deseja sair");
 
+
+
         while(!condParada){
             System.out.println("Qual opção deseja acessar? ");
+
             int opcao = sc.nextInt();
+
             if(opcao < 1 || opcao > 7){
                 System.out.println("Opção inválida! Digite a opção correta.");
+
                 opcao = sc.nextInt();
             }
             switch (opcao){
@@ -29,9 +34,11 @@ public class Main {
 
                     System.out.println("Digite o nome do aluno");
                     String nome = sc.nextLine();
+                    sc.nextLine();
 
                     System.out.println("Digite o email do aluno");
                     String email = sc.nextLine();
+
 
                     fach.adicionaAlumnis(nome, email);
                     break;
@@ -46,6 +53,7 @@ public class Main {
 
                     System.out.println("Digite o email do aluno que procura");
                     String procurarEmail = sc.nextLine();
+                    sc.nextLine();
 
                     fach.pesquisaAlumnis(procurarEmail);
                     break;
@@ -66,13 +74,13 @@ public class Main {
                 case 6:
 
                     System.out.println("Todos alunos: ");
-                    fach.alumnisTodos();
+                    System.out.println(fach.alumnisTodos());
                     break;
                 case 7:
 
                     condParada = true;
                 default:
-                    
+
                     throw new IllegalStateException("Unexpected value: " + opcao);
             }
 
@@ -84,3 +92,4 @@ public class Main {
 
 
 }
+
