@@ -5,35 +5,36 @@ public class Alunos {
 
     List<Aluno> alunos = new ArrayList<>();
 
+    public void adicionaAluno(String nome, String email){
+
+        Aluno alun = new Aluno(nome, email, alunos.size() + 1);
+        alunos.add(alun);
+    }
+
     public Aluno buscaAluno(Integer matricula){
         return alunos.get(matricula - 1);
     }
 
-    public void adicionaAluno(String name, String email){
-
-        Aluno alun = new Aluno(name, email, alunos.size() + 1);
-        alunos.add(alun);
-    }
-
     public void removeAluno(Integer matricula){
 
-        Aluno aluno = buscaAluno(matricula);
-        alunos.remove(aluno);
+        Aluno alunoRemover = buscaAluno(matricula);
+        alunos.remove(alunoRemover);
     }
 
-    public void pesquisarAluno(String email){
+    public String pesquisarAluno(String email){
 
         for (Aluno alu: alunos) {
             if(alu.getEmail().contains(email)){
                 System.out.println("Email: " + alu.getEmail());
             }
         }
+        return null;
     }
     public String pesquisarAlunoMatricula(Integer matricula, Integer adicionaqtdCredito){
 
-        for (Aluno alun: alunos) {
+        for (int i = 0; i < alunos.size(); i++){
+            Aluno alun = alunos.get(i);
             if(alun.getMatricula() == matricula){
-                alunos.get(matricula);
                 if(adicionaqtdCredito == 2){
                     alun.adicionaCredito2();
                 } else if (adicionaqtdCredito == 4) {
