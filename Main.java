@@ -33,8 +33,8 @@ public class Main {
                 case 1:
 
                     System.out.println("Digite o nome do aluno");
-                    String nome = sc.nextLine();
                     sc.nextLine();
+                    String nome = sc.nextLine();
 
                     System.out.println("Digite o email do aluno");
                     String email = sc.nextLine();
